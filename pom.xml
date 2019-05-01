@@ -67,7 +67,7 @@
     <dependency>
       <groupId>com.evolvedbinary.appbundler</groupId>
       <artifactId>appbundler</artifactId>
-      <version>1.0</version>
+      <version>1.0.1</version>
     </dependency>
 
   </dependencies>
