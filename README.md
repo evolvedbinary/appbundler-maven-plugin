@@ -1,6 +1,6 @@
 # AppBundler Maven Plugin
 
-This is a Maven plugin for working with Oracle's AppBundler. Specifically the fork at https://bitbucket.org/infinitekind/appbundler
+This is a Maven plugin for working with Oracle's AppBundler. Specifically the fork at https://github.com/TheInfiniteKind/appbundler
 
 ```xml
 <plugin>
