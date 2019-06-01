@@ -132,7 +132,7 @@ public class AppBundlerMojo extends AbstractMojo {
     @Parameter
     private String jvmRequired = null;
 
-    @Parameter(defaultValue = "true")
+    @Parameter(defaultValue = "false")
     private boolean jrePreferred;
 
     @Parameter(defaultValue = "false")
