@@ -51,6 +51,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -264,7 +265,7 @@ public class AppBundlerMojo extends AbstractMojo {
             // Copy executable to MacOS folder
             final Path executableFile = macOSDirectory.resolve(executableName);
             try (final InputStream is = getClass().getClassLoader().getResourceAsStream(APPBUNDLER_PACKAGE_PATH + "/" + EXECUTABLE_NAME)) {
-                Files.copy(is, executableFile);
+                Files.copy(is, executableFile, StandardCopyOption.REPLACE_EXISTING);
             }
             executableFile.toFile().setExecutable(true, false);
 
@@ -375,7 +376,7 @@ public class AppBundlerMojo extends AbstractMojo {
         for (final Artifact artifact : artifacts) {
             final Path source = artifact.getFile().toPath();
             final Path dest = javaDirectory.resolve(source.getFileName());
-            Files.copy(source, dest);
+            Files.copy(source, dest, StandardCopyOption.REPLACE_EXISTING);
 
             getLog().info("Copied dependency " + source.toAbsolutePath().toString() + " to " + dest.toAbsolutePath().toString());
         }
@@ -413,7 +414,7 @@ public class AppBundlerMojo extends AbstractMojo {
     private void copyIcon(final Path resourcesDirectory) throws IOException {
         if (icon == null) {
             try (final InputStream is = getClass().getClassLoader().getResourceAsStream(APPBUNDLER_PACKAGE_PATH + "/" + DEFAULT_ICON_NAME)) {
-                Files.copy(is, resourcesDirectory.resolve(DEFAULT_ICON_NAME));
+                Files.copy(is, resourcesDirectory.resolve(DEFAULT_ICON_NAME), StandardCopyOption.REPLACE_EXISTING);
             }
         } else {
             final Path src;
@@ -428,7 +429,7 @@ public class AppBundlerMojo extends AbstractMojo {
                 }
             }
 
-            Files.copy(src, dest);
+            Files.copy(src, dest, StandardCopyOption.REPLACE_EXISTING);
             getLog().info("Copied icon " + src.toAbsolutePath().toString() + " to " + dest.toAbsolutePath().toString());
         }
     }
@@ -450,7 +451,7 @@ public class AppBundlerMojo extends AbstractMojo {
             return;
         } else {
             final Path dest = resourcesDirectory.resolve(ifile.getFileName());
-            Files.copy(ifile, dest);
+            Files.copy(ifile, dest, StandardCopyOption.REPLACE_EXISTING);
             getLog().info("Copied document icon " + ifile.toAbsolutePath().toString() + " to " + dest.toAbsolutePath().toString());
         }
     }
@@ -471,7 +472,7 @@ public class AppBundlerMojo extends AbstractMojo {
                     if (!Files.exists(parent)) {
                         Files.createDirectories(parent);
                     }
-                    Files.copy(zipInputStream, file);
+                    Files.copy(zipInputStream, file, StandardCopyOption.REPLACE_EXISTING);
                     getLog().info("Copied resource " + zipEntry.getName() + " to " + file.toAbsolutePath().toString());
                 }
 
@@ -508,7 +509,7 @@ public class AppBundlerMojo extends AbstractMojo {
                 Files.createDirectories(destDir);
             }
             final Path dest = destDir.resolve(source.getFileName());
-            Files.copy(source, dest);
+            Files.copy(source, dest, StandardCopyOption.REPLACE_EXISTING);
 
             getLog().info("Copied " + source.toAbsolutePath().toString() + " to " + dest.toAbsolutePath().toString());
         }
