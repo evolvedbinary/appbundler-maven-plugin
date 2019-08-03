@@ -1,5 +1,8 @@
 # AppBundler Maven Plugin
 
+[![Build Status](https://travis-ci.com/evolvedbinary/appbundler-maven-plugin.svg?branch=master)](https://travis-ci.com/evolvedbinary/appbundler-maven-plugin)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.evolvedbinary.appbundler/appbundler-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.evolvedbinary.appbundler/appbundler-maven-plugin)
+
 This is a Maven plugin for working with Oracle's AppBundler. Specifically the fork at https://github.com/TheInfiniteKind/appbundler
 
 ```xml
