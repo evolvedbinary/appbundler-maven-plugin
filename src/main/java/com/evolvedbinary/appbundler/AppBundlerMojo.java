@@ -34,6 +34,8 @@ package com.evolvedbinary.appbundler;
 
 import com.oracle.appbundler.IconContainer;
 import org.apache.maven.artifact.Artifact;
+import org.apache.maven.artifact.repository.layout.ArtifactRepositoryLayout;
+import org.apache.maven.artifact.repository.layout.FlatRepositoryLayout;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
@@ -43,6 +45,7 @@ import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.shared.model.fileset.FileSet;
 import org.apache.maven.shared.model.fileset.util.FileSetManager;
+import org.sonatype.aether.util.layout.RepositoryLayout;
 
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -373,9 +376,10 @@ public class AppBundlerMojo extends AbstractMojo {
             }
         }
 
+        final ArtifactRepositoryLayout flatRepositoryLayout = new FlatRepositoryLayout();
         for (final Artifact artifact : artifacts) {
             final Path source = artifact.getFile().toPath();
-            final Path dest = javaDirectory.resolve(source.getFileName());
+            final Path dest = javaDirectory.resolve(flatRepositoryLayout.pathOf(artifact));
             Files.copy(source, dest, StandardCopyOption.REPLACE_EXISTING);
 
             getLog().info("Copied dependency " + source.toAbsolutePath().toString() + " to " + dest.toAbsolutePath().toString());
@@ -392,9 +396,10 @@ public class AppBundlerMojo extends AbstractMojo {
             }
         }
 
+        final ArtifactRepositoryLayout flatRepositoryLayout = new FlatRepositoryLayout();
         final List<String> classPaths = new ArrayList<>(artifacts.size());
         for (final Artifact artifact : artifacts) {
-            final String classPath = javaDirectory.getFileName().resolve(artifact.getFile().getName()).toString();
+            final String classPath = javaDirectory.getFileName().resolve(flatRepositoryLayout.pathOf(artifact)).toString();
             classPaths.add(APP_ROOT_PREFIX + "/Contents/" + classPath);
         }
         return classPaths;
