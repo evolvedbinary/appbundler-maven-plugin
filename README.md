@@ -1,15 +1,15 @@
 # AppBundler Maven Plugin
 
-[![Build Status](https://travis-ci.com/evolvedbinary/appbundler-maven-plugin.svg?branch=master)](https://travis-ci.com/evolvedbinary/appbundler-maven-plugin)
+[![Build Status](https://travis-ci.com/evolvedbinary/appbundler-maven-plugin.svg?branch=main)](https://travis-ci.com/evolvedbinary/appbundler-maven-plugin)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.evolvedbinary.appbundler/appbundler-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.evolvedbinary.appbundler/appbundler-maven-plugin)
 
-This is a Maven plugin for working with Oracle's AppBundler. Specifically the fork at https://github.com/TheInfiniteKind/appbundler
+This is a Maven plugin for working with Oracle's AppBundler. Specifically the fork at https://github.com/evolvedbinary/appbundler
 
 ```xml
 <plugin>
   <groupId>com.evolvedbinary.appbundler</groupId>
   <artifactId>appbundler-maven-plugin</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.1.0</version>
 </plugin>
 ```
 
@@ -19,7 +19,7 @@ This is a Maven plugin for working with Oracle's AppBundler. Specifically the fo
 <plugin>
   <groupId>com.evolvedbinary.appbundler</groupId>
   <artifactId>appbundler-maven-plugin</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.1.0-SNAPSHOT</version>
   <executions>
     <execution>
       <id>bundle-my-mac-app</id>
