@@ -94,6 +94,9 @@ public class AppBundlerMojo extends AbstractMojo {
     @Parameter(required = true, defaultValue = "${project.build.directory}")
     private File outputDirectory;
 
+    @Parameter(property = "appbundler.skip", defaultValue = "false")
+    private boolean skip;
+
 
     /* General bundle properties */
 
@@ -232,6 +235,11 @@ public class AppBundlerMojo extends AbstractMojo {
 
 
     public void execute() throws MojoExecutionException {
+        if (skip) {
+            getLog().info("AppBundler has been skipped per configuration of the 'skip' parameter or 'appbundler.skip' property.");
+            return;
+        }
+
        validateParameters();
 
         // Create the app bundle
