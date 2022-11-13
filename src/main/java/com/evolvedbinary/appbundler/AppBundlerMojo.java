@@ -113,7 +113,7 @@ public class AppBundlerMojo extends AbstractMojo {
     private String executableName;
 
     @Parameter(defaultValue = "${project.version}")
-    private String shortVersion = "1.0";
+    private String shortVersion = "1.0.0";
 
     @Parameter(defaultValue = "${project.version}")
     private String version;
