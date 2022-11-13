@@ -1,6 +1,6 @@
 # AppBundler Maven Plugin
 
-[![Build Status](https://travis-ci.com/evolvedbinary/appbundler-maven-plugin.svg?branch=main)](https://travis-ci.com/evolvedbinary/appbundler-maven-plugin)
+[![Build Status](https://github.com/evolvedbinary/appbundler-maven-plugin/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/evolvedbinary/appbundler-maven-plugin/actions/workflows/ci.yml)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.evolvedbinary.appbundler/appbundler-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.evolvedbinary.appbundler/appbundler-maven-plugin)
 
 This is a Maven plugin for working with Oracle's AppBundler. Specifically the fork at https://github.com/evolvedbinary/appbundler
