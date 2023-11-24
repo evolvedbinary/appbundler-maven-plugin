@@ -19,7 +19,7 @@ This is a Maven plugin for working with Oracle's AppBundler. Specifically the fo
 <plugin>
   <groupId>com.evolvedbinary.appbundler</groupId>
   <artifactId>appbundler-maven-plugin</artifactId>
-  <version>2.0.1-SNAPSHOT</version>
+  <version>3.0.1-SNAPSHOT</version>
   <executions>
     <execution>
       <id>bundle-my-mac-app</id>
