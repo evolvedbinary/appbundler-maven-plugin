@@ -9,7 +9,7 @@ This is a Maven plugin for working with Oracle's AppBundler. Specifically the fo
 <plugin>
   <groupId>com.evolvedbinary.appbundler</groupId>
   <artifactId>appbundler-maven-plugin</artifactId>
-  <version>2.0.0</version>
+  <version>3.1.0</version>
 </plugin>
 ```
 
