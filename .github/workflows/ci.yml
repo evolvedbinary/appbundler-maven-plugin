@@ -2,14 +2,19 @@ name: CI
 on: [push, pull_request]
 jobs:
   build:
-    runs-on: macOS-latest
+    name: Build
+    strategy:
+      fail-fast: false
+      matrix:
+        jdk: [ 8, 11, 17, 21 ]
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up JDK 8
+      - name: Set up JDK ${{ matrix.jdk }}
         uses: actions/setup-java@v4
         with:
-          java-version: '8'
-          distribution: 'liberica'
-          cache: 'maven'
+          java-version: ${{ matrix.jdk }}
+          distribution: liberica
+          cache: maven
       - name: Build with Maven
         run: mvn -V -B package
