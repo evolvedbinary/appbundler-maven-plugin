@@ -286,6 +286,18 @@
               </execution>
             </executions>
           </plugin>
+          <plugin>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <version>0.8.0</version>
+            <extensions>true</extensions>
+            <configuration>
+              <publishingServerId>central</publishingServerId>
+              <deploymentName>${project.artifactId}-${project.version}</deploymentName>
+              <failOnBuildFailure>true</failOnBuildFailure>
+              <waitUntil>validated</waitUntil>
+            </configuration>
+          </plugin>
         </plugins>
       </build>
     </profile>
