@@ -9,7 +9,7 @@ This is a Maven plugin for working with Oracle's AppBundler. Specifically the fo
 <plugin>
   <groupId>com.evolvedbinary.appbundler</groupId>
   <artifactId>appbundler-maven-plugin</artifactId>
-  <version>3.1.0</version>
+  <version>3.3.0</version>
 </plugin>
 ```
 
@@ -20,7 +20,7 @@ If you only need a platform specific binary, you can override the dependency on 
 <plugin>
   <groupId>com.evolvedbinary.appbundler</groupId>
   <artifactId>appbundler-maven-plugin</artifactId>
-  <version>3.1.0</version>
+  <version>3.3.0</version>
   <dependencies>
     <dependency>
       <groupId>com.evolvedbinary.appbundler</groupId>
