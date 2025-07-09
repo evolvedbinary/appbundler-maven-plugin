@@ -13,6 +13,25 @@ This is a Maven plugin for working with Oracle's AppBundler. Specifically the fo
 </plugin>
 ```
 
+NOTE: By default, the plugin will use a universal native binary for the AppBundler that should run on both macOS for x86_64 and arm64 processors.
+If you only need a platform specific binary, you can override the dependency on `com.evolvedbinary.appbundler:appbundler` with a classifier of either: `<classifier>macos-x86_64-only</classifier>` or `<classifier>macos-arm64-only</classifier>`, for example:
+
+```xml
+<plugin>
+  <groupId>com.evolvedbinary.appbundler</groupId>
+  <artifactId>appbundler-maven-plugin</artifactId>
+  <version>3.1.0</version>
+  <dependencies>
+    <dependency>
+      <groupId>com.evolvedbinary.appbundler</groupId>
+      <artifactId>appbundler</artifactId>
+      <version>1.4.1</version>
+      <classifier>macos-x86_64-only</classifier>
+    </dependency>
+  </dependencies>
+</plugin>
+```
+
 ## Example
 
 ```xml
